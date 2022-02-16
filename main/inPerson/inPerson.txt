@@ -1,0 +1,9 @@
+
+
+ const onlineUsers=[
+({name: "Andrii", 
+age: 22, 
+city: "Lviv"},
+{name: "Ostap", 
+age: 26, 
+city: "Lviv" })]
