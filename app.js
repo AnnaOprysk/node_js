@@ -71,22 +71,54 @@ const inPersonUsers = [
 // })
 
 
-fs.appendFile(path.join(__dirname,'main','online','online.txt'),'\n const onlineUsers=[\n' +
-    '({name: "Andrii", \nage: 22, \ncity: "Lviv"},\n' +
-    '{name: "Ostap", \nage: 26, \ncity: "Lviv" })]',(err)=> {
-    if (err) {
-        console.log(err);
-        throw err;
-    }
-} )
+// fs.appendFile(path.join(__dirname, 'main', 'online', 'online.txt'), '\n const onlineUsers=[\n' +
+//     '({name: "Andrii", \nage: 22, \ncity: "Lviv"},\n' +
+//     '{name: "Ostap", \nage: 26, \ncity: "Lviv" })]', (err) => {
+//     if (err) {
+//         console.log(err);
+//         throw err;
+//     }
+// })
 
-fs.appendFile(path.join(__dirname,'main','inPerson','inPerson.txt'),'\n const inPersonUsers =[(\n{name: "Anna",  \nage: 20, \ncity: "Lviv"},\n{name: "Olga", \nage: 31, \ncity: "Ternopil"})]',(err)=> {
-    if (err) {
-        console.log(err);
-        throw err;
-    }
-} )
+// fs.appendFile(path.join(__dirname, 'main', 'inPerson', 'inPerson.txt'), '\n const inPersonUsers =[(\n{name: "Anna",  \nage: 20, \ncity: "Lviv"},\n{name: "Olga", \nage: 31, \ncity: "Ternopil"})]', (err) => {
+//     if (err) {
+//         console.log(err);
+//         throw err;
+//     }
+// })
 
 
 // напишіть функцію яка буде міняти місцями юзерів з одного файлу і папки в іншу. (ті, що були в папці inPerson будуть в папці online)
 
+const changingUsers = () => {
+    fs.readFile(path.join(__dirname, 'main', 'inPerson', 'inPerson.txt'), "utf-8", (err, data) => {
+        if (err) {
+            console.log(err);
+            throw err;
+        }
+
+        fs.writeFile(path.join(__dirname, 'main', 'online', 'online.txt'), data, (err) => {
+            if (err) {
+                console.log(err);
+                throw err;
+            }
+            console.log('Replaced data from inPerson.txt to online.txt ');
+        })
+    });
+
+    fs.readFile(path.join(__dirname, 'main', 'online', 'online.txt'), "utf-8", (err, data) => {
+        if (err) {
+            console.log(err);
+            throw err;
+        }
+
+        fs.writeFile(path.join(__dirname, 'main', 'inPerson', 'inPerson.txt'), data, (err) => {
+            if (err) {
+                console.log(err);
+                throw err;
+            }
+            console.log('Replaced data from online.txt to inPerson.txt ');
+        })
+    })
+}
+changingUsers();
