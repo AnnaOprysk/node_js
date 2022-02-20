@@ -1,0 +1,8 @@
+
+NAME: Anna
+AGE: 20
+CITY: Lviv
+
+NAME: Olga 
+AGE: 31 
+CITY: Ternopil

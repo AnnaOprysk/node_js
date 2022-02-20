@@ -1,9 +1,0 @@
-
-
- const inPersonUsers =[(
-{name: "Anna",  
-age: 20, 
-city: "Lviv"},
-{name: "Olga", 
-age: 31, 
-city: "Ternopil"})]
