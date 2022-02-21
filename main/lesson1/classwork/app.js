@@ -87,14 +87,14 @@ fs.mkdir(path.join(__dirname, 'Test2'), {recursive: true}, (err) => {
 // 3. Створіть папку (можете вручну) напишіть скріпт який створить в ній якись дані (можуть бути нові папки і файли(в файли запишіть якусь дату) )
 // і напишіть функцію яка буде зчитувати папку і перевіряти якщо дані які в ній лежать - це файли тоді вам потрібно їх очистити, але не видаляти, якщо дані - це папки, вам потрібно їх перейменувати і додати до назви префікс _new
 
-fs.mkdir(path.join(__dirname, 'Test3', 'One'), err => {
+fs.mkdir(path.join(__dirname, 'Test3', 'One','Any1.txt'), err => {
     if (err) {
         console.log(err)
         throw err
     }
 })
 
-fs.mkdir(path.join(__dirname, 'Test3', 'Two'), err => {
+fs.mkdir(path.join(__dirname, 'Test3', 'Two','Any2.txt'), err => {
     if (err) {
         console.log(err)
         throw err
