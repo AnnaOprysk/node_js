@@ -1,6 +1,6 @@
 // 1. Спробуйте створити якийсь файл txt, прочитайте з нього дані і одразу, дані які ви отримали запишіть їх в інший файл, в вас вийде невеликий callback hell
 
-const path = require("path");
+const path = require('path');
 const fs = require('fs')
 
 fs.mkdir(path.join(__dirname, 'Test1'), {recursive: true}, (err) => {
@@ -8,18 +8,18 @@ fs.mkdir(path.join(__dirname, 'Test1'), {recursive: true}, (err) => {
         console.log(err);
         throw err
     }
-})
-fs.writeFile(path.join(__dirname, 'Test1', 'File1.txt'), 'Some data', (err) => {
-    if (err) {
-        console.log(err)
-        throw err
-    }
-})
-fs.writeFile(path.join(__dirname, 'Test1', 'File2.txt'), '', (err) => {
-    if (err) {
-        console.log(err)
-        throw err
-    }
+    fs.writeFile(path.join(__dirname, 'Test1', 'File1.txt'), 'Some data', (err) => {
+        if (err) {
+            console.log(err)
+            throw err
+        }
+        fs.writeFile(path.join(__dirname, 'Test1', 'File2.txt'), '', (err) => {
+            if (err) {
+                console.log(err)
+                throw err
+            }
+        })
+    })
 })
 
 function recordData() {
@@ -28,13 +28,11 @@ function recordData() {
             console.log(err)
             throw err
         }
-
         fs.writeFile(path.join(__dirname, 'Test1', 'File2.txt'), data, (err) => {
             if (err) {
                 console.log(err)
                 throw err
             }
-
         })
     })
 }
@@ -60,7 +58,6 @@ fs.mkdir(path.join(__dirname, 'Test2'), {recursive: true}, (err) => {
                 console.log(err)
                 throw err
             }
-
             fs.writeFile(path.join(__dirname, 'Test2', 'NewFile2', 'NewFile2.txt'), '', (err) => {
                 if (err) {
                     console.log(err)
@@ -87,34 +84,30 @@ fs.mkdir(path.join(__dirname, 'Test2'), {recursive: true}, (err) => {
 // 3. Створіть папку (можете вручну) напишіть скріпт який створить в ній якись дані (можуть бути нові папки і файли(в файли запишіть якусь дату) )
 // і напишіть функцію яка буде зчитувати папку і перевіряти якщо дані які в ній лежать - це файли тоді вам потрібно їх очистити, але не видаляти, якщо дані - це папки, вам потрібно їх перейменувати і додати до назви префікс _new
 
-fs.mkdir(path.join(__dirname, 'Test3', 'One','Any1.txt'), err => {
+fs.mkdir(path.join(__dirname, 'Test3', 'One', 'Any1.txt'), err => {
     if (err) {
         console.log(err)
         throw err
     }
 })
-
-fs.mkdir(path.join(__dirname, 'Test3', 'Two','Any2.txt'), err => {
+fs.mkdir(path.join(__dirname, 'Test3', 'Two', 'Any2.txt'), err => {
     if (err) {
         console.log(err)
         throw err
     }
 })
-
 fs.writeFile(path.join(__dirname, 'Test3', 'File1.txt'), 'Hello world ', err => {
     if (err) {
         console.log(err)
         throw err
     }
 })
-
 fs.writeFile(path.join(__dirname, 'Test3', 'File2.txt'), 'Hello okten', err => {
     if (err) {
         console.log(err)
         throw err
     }
 })
-
 const searchFiles = (file) => {
     fs.readdir(path.join(__dirname, `${file}`), (err, data) => {
         if (err) {
