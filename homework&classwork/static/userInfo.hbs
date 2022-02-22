@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>UserInfo</title>
+    <style>
+        * {
+            background-color: lightsteelblue;
+        }
+
+        .userInfo {
+            margin: 200px;
+            width: 600px;
+            font-size: 25px;
+            border: 1px solid cadetblue;
+        }
+    </style>
+</head>
+<body>
+<div class="userInfo">
+    {{#user}}
+        <div>
+            <b>ID :</b>
+            <span>{{this.id}}</span>
+        </div>
+        <div>
+            <b>Name :</b>
+            <span>{{this.firstName}}</span> <span>{{this.lastName}}</span>
+        </div>
+        <div>
+            <b>Email :</b>
+            <span>{{this.email}}</span>
+        </div>
+        <div>
+            <b>Age :</b>
+            <span>{{this.age}}</span>
+        </div>
+        <div>
+            <b>City :</b>
+            <span>{{this.city}}</span>
+        </div>
+
+        <form action="/deleteUser/{{this.id}}" method="get">
+            <input type="submit" value="Delete user">
+        </form>
+    {{/user}}
+</div>
+</body>
+</html>
