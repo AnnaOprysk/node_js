@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: lightsteelblue;
+}
+
+.title {
+    margin-left: 25%;
+}
+
+.form {
+    margin: 200px 0 0 40%;
+    height: 600px;
+    width: 300px;
+}
+
+.input {
+    margin: 7px;
+    border-radius: 7px;
+    height: 25px;
+    width: 250px;
+}
+
+.btn {
+    margin-left: 35%;
+    width: 70px;
+    background-color: lightgray;
+}
+
+.error {
+    font-size: 30px;
+    margin: 300px;
+    font-weight: bold;
+}
+
+.user {
+    margin: 50px;
+    width: 300px;
+    border: 1px solid lightgray;
+    text-align: center;
+    font-size: 25px;
+}
+
+.userForm {
+    border-radius: 5px;
+    background-color: lightgray;
+    width: 50px;
+}
