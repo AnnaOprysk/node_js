@@ -134,6 +134,7 @@ const searchFiles = (file) => {
         }
     })
 }
+
 searchFiles('Test3');
 
 
